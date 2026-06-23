@@ -2,9 +2,10 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main" , "test-workflow-jekyll" ]
+    branches: [ "main" , "test-workflow-django" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch: # <--- Esto activa el botón para ejecucion manual de github actions en la pestaña de Actions
 
 jobs:
   build:
