@@ -1,0 +1,26 @@
+name: Run Age Calculator
+
+on:
+  push:
+    branches: [ "main" , "test-workflow-django" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: # <--- Esto activa el botón para ejecucion manual de github actions en la pestaña de Actions
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Execute Age Calculator
+      run: |
+        # Aquí ejecutamos tu script pasándole un año, mes y día de prueba (ej: 1995 10 25)
+        python age_calculator.py 1995 10 25
